@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>背景换肤功能</title>
+</head>
+
+<style>
+	body{ background:url(images/1.jpg);top: 0px;left: 0px;height: 100%;width: 100%;background-position: center 0px;background-repeat: no-repeat;background-attachment: fixed;background-size: cover;}
+	.box{ position:absolute;background:rgba(62, 204, 237, 0.38);width:100%;height:300px;display:none;left:0;top:0}
+	.pic_list{ margin:70px auto;width:680px;height:208px;}
+	.pic_list .pic{float:left;width:224px;height:205px;}
+	.pic_list .pic1{float:left;width:114px;height:205px;}
+	.pic_list .pic img{float:left; }
+	.pic_list .pic1 img{float:left; }
+	.pic_list img{margin:0 2px 2px 0;}
+	.pic_list img:hover{border:3px solid #00FF00}
+	.btn{position:absolute;padding:7px 7px;color:#FF0000;background:#FFFF00;border-radius:14px;text-decoration:none}
+</style>
+
+<body>
+	<a class="btn" href="#">换肤</a>
+	<div class="box">
+		<div class="pic_list">
+			<div class="pic">
+				<img src="images/1-1.jpg" width="216" height="132"></img>
+				<img src="images/2-1.jpg" width="107" height="65"></img>
+				<img src="images/3-1.jpg" width="107" height="65"></img>
+			</div>
+			<div class="pic1">
+				<img src="images/4-1.jpg" width="107" height="65"></img>
+				<img src="images/5-1.jpg" width="107" height="65"></img>
+				<img src="images/6-1.jpg" width="107" height="65"></img>
+			</div>
+			<div class="pic">
+				<img src="images/7-1.jpg" width="216" height="132"></img>
+				<img src="images/8-1.jpg" width="107" height="65"></img>
+				<img src="images/9-1.jpg" width="107" height="65"></img>
+			</div>
+			<div class="pic1">
+				<img src="images/10-1.jpg" width="107" height="65"></img>
+				<img src="images/11-1.jpg" width="107" height="65"></img>
+				<img src="images/12-1.jpg" width="107" height="65"></img>
+			</div>
+		</div>
+	</div>
+	<!----jqeury---start----->
+	<script type="text/javascript" src="js/jquery-1.7.1.js"></script>
+	<script type="text/javascript">
+	<!---皮肤框展示区-->
+		$(".btn").click(function(e){
+			$(".box").fadeToggle("slow");
+			e.stopPropagation();//阻止事件
+		});
+		
+		
+		
+	<!--点击换肤功能-->
+		$(".box .pic_list img").click(function(e){
+			var simg=$(this).attr("src");
+			var bimg=simg.replace(/-\d*/,"");
+			$("body").css("background","url("+bimg+")");
+			$("body").css("background-attachment","fixed");
+			$("body").css("background-size","cover");
+			e.stopPropagation();//阻止事件
+		});
+		
+		
+	<!--皮肤框隐藏区-->
+		$(document).click(function(e){
+			$(".box").slideUp("slow");
+			e.stopPropagation();//阻止事件
+		});
+		
+		
+	</script>
+	<!----jqeury---end----->
+</body>
+</html>
